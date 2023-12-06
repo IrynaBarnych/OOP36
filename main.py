@@ -138,3 +138,15 @@ lst_rand = random.sample(range(10, 99), 8)
 for i in range(8):
     tree.insert(lst_rand[i])
 tree.inorder_travelsal()
+
+from binarytree import build
+# Список вузлів
+# Побудова бінарного дерева
+binary_tree = build(lst_rand)
+print('Бінарне дерево зі списку :\n',
+	binary_tree)
+
+# Отримання списку вузлів з
+# бінарного дерева
+print('\nСписок із бінарного дерева :',
+	binary_tree.values)
