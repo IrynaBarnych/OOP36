@@ -29,25 +29,36 @@ class BinaryTree:
             else:
                 self._insert_recursive(value, current_node.right)
 
-        def inorder_travelsal(self):
-            self._inorder_travelsal_recursive(self.root)
+    def inorder_travelsal(self):
+        self._inorder_travelsal_recursive(self.root)
 
-        def _inorder_travelsal_recursive(self, current_node):
-            if current_node is not None:
-                self._inorder_travelsal_recursive(current_node.left)
-                print(current_node.value)
-                self._inorder_travelsal_recursive(current_node.right)
+    def _inorder_travelsal_recursive(self, current_node):
+        if current_node is not None:
+            self._inorder_travelsal_recursive(current_node.left)
+            print(current_node.value)
+            self._inorder_travelsal_recursive(current_node.right)
 
-        def search(self, value):
-            return self._search_recursive(value, self.root)
+    def search(self, value):
+        return self._search_recursive(value, self.root)
 
-        def _search_recursive(self, value, current_node):
-            if current_node is None:
-                return False
-            elif current_node.value == value:
-                return True
-            elif value < current_node.value:
-                return self._search_recursive(value, current_node.left)
-            else:
-                return self._search_recursive(value, current_node.right)
+    def _search_recursive(self, value, current_node):
+        if current_node is None:
+            return False
+        elif current_node.value == value:
+            return True
+        elif value < current_node.value:
+            return self._search_recursive(value, current_node.left)
+        else:
+            return self._search_recursive(value, current_node.right)
 
+    def find_min(self):
+        current = self.root
+        while current.left is not None:
+            current = current.left
+        return current.value
+
+    def find_max(self):
+        current = self.root
+        while current.right is not None:
+            current = current.right
+        return current.value
