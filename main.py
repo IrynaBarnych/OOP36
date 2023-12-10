@@ -81,8 +81,9 @@ class TaxDatabase:
             elif not root.right:
                 return root.left
 
-            root.penalty = self._min_value_node(root.right)
-            root.right = self.remove_penalty(root.right, root.penalty.description)
+            min_node = self._min_value_node(root.right)
+            root.penalty = min_node.penalty
+            root.right = self.remove_penalty(root.right, min_node.penalty.description)
 
         return root
 
